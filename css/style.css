@@ -1,0 +1,1534 @@
+/* ==========================================================================
+   MCET - Department of Computer Applications (MCA)
+   Pure HTML5 & CSS3 Academic Stylesheet
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CSS Variables & Reset
+   -------------------------------------------------------------------------- */
+:root {
+    --primary: #123B68;       /* Institutional Dark Navy */
+    --primary-dark: #0c2747;  /* Deep Navy for hovers and top bar */
+    --accent: #A9002B;        /* Crimson / Deep Red */
+    --accent-hover: #870022;  /* Darker Red on hover */
+    --dark: #222222;          /* Primary Body Text */
+    --text-muted: #555555;     /* Secondary / Muted Text */
+    --light: #F6F7F9;         /* Section Background Light Gray */
+    --white: #FFFFFF;         /* Pure White */
+    --border-color: #E2E6EC;  /* Clean card & divider border */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+    --font-main: 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    --font-heading: 'Georgia', 'Times New Roman', serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--dark);
+    background-color: var(--white);
+    line-height: 1.65;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.25s ease;
+}
+
+a:hover {
+    color: var(--accent);
+}
+
+ul {
+    list-style: none;
+}
+
+/* --------------------------------------------------------------------------
+   2. Layout Containers & Grid System
+   -------------------------------------------------------------------------- */
+.container {
+    width: 92%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.section {
+    padding: 60px 0;
+}
+
+.section-light {
+    background-color: var(--light);
+}
+
+.section-white {
+    background-color: var(--white);
+}
+
+/* --------------------------------------------------------------------------
+   3. Section Headings with Red Accent Line
+   -------------------------------------------------------------------------- */
+.section-header {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-header.text-left {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.section-title {
+    font-size: 2.1rem;
+    color: var(--primary);
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+}
+
+.section-title::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent);
+    border-radius: 2px;
+}
+
+.section-header.text-left .section-title::after {
+    left: 0;
+    transform: none;
+}
+
+.section-subtitle {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.section-header.text-left .section-subtitle {
+    margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   4. Buttons
+   -------------------------------------------------------------------------- */
+.btn {
+    display: inline-block;
+    padding: 11px 24px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.btn-primary {
+    background-color: var(--accent);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-hover);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(169, 0, 43, 0.3);
+}
+
+.btn-secondary {
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-dark);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(18, 59, 104, 0.3);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--white);
+    border-color: var(--white);
+}
+
+.btn-outline:hover {
+    background-color: var(--white);
+    color: var(--primary);
+    transform: translateY(-2px);
+}
+
+.btn-outline-primary {
+    background-color: transparent;
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+/* --------------------------------------------------------------------------
+   5. Two-Level College Header
+   -------------------------------------------------------------------------- */
+/* Top Utility Bar */
+.top-bar {
+    background-color: var(--primary-dark);
+    color: #cbd7e6;
+    font-size: 0.85rem;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.top-bar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.top-info {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.top-info span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.top-affiliations {
+    font-weight: 500;
+    color: #e2e8f0;
+}
+
+/* Main Navigation Bar */
+.main-header {
+    background-color: var(--white);
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.brand-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.college-crest {
+    width: 48px;
+    height: 48px;
+    background-color: var(--primary);
+    color: var(--white);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    border: 2px solid var(--accent);
+    flex-shrink: 0;
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.college-title {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--primary);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+
+.dept-title {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.3px;
+    line-height: 1.3;
+}
+
+/* Nav Links */
+.main-nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+}
+
+.main-nav a {
+    padding: 9px 14px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--dark);
+    border-radius: 4px;
+    transition: all 0.25s ease;
+    display: inline-block;
+}
+
+.main-nav a:hover {
+    color: var(--accent);
+    background-color: #fdf2f4;
+}
+
+.main-nav a.active {
+    color: var(--white);
+    background-color: var(--accent);
+}
+
+/* --------------------------------------------------------------------------
+   6. Inner Page Banner & Breadcrumb
+   -------------------------------------------------------------------------- */
+.page-banner {
+    background: linear-gradient(rgba(18, 59, 104, 0.92), rgba(18, 59, 104, 0.95)), url('../images/campus.jpg');
+    background-size: cover;
+    background-position: center;
+    color: var(--white);
+    padding: 45px 0;
+    border-bottom: 4px solid var(--accent);
+}
+
+.banner-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.banner-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--white);
+}
+
+.breadcrumb {
+    font-size: 0.9rem;
+    color: #d1dbe6;
+}
+
+.breadcrumb a {
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.breadcrumb a:hover {
+    color: #ffcad4;
+    text-decoration: underline;
+}
+
+.breadcrumb span {
+    margin: 0 8px;
+    color: #a0aec0;
+}
+
+/* --------------------------------------------------------------------------
+   7. Home: Hero Section
+   -------------------------------------------------------------------------- */
+.hero-section {
+    position: relative;
+    background: linear-gradient(rgba(12, 39, 71, 0.85), rgba(18, 59, 104, 0.8)), url('../images/campus.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 520px;
+    display: flex;
+    align-items: center;
+    color: var(--white);
+    padding: 70px 0;
+}
+
+.hero-content {
+    max-width: 780px;
+}
+
+.hero-badge {
+    display: inline-block;
+    background-color: var(--accent);
+    color: var(--white);
+    padding: 5px 14px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 3px;
+    margin-bottom: 18px;
+}
+
+.hero-title {
+    font-size: 2.8rem;
+    line-height: 1.2;
+    font-weight: 800;
+    margin-bottom: 15px;
+    color: var(--white);
+}
+
+.hero-subtitle {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #ffcad4;
+    margin-bottom: 18px;
+}
+
+.hero-description {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #e2e8f0;
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* --------------------------------------------------------------------------
+   8. Home: Welcome / About Preview Section
+   -------------------------------------------------------------------------- */
+.about-preview-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 45px;
+    align-items: center;
+}
+
+.about-preview-text p {
+    margin-bottom: 18px;
+    color: var(--text-muted);
+    font-size: 1.02rem;
+}
+
+.about-preview-image {
+    position: relative;
+}
+
+.about-preview-image img {
+    border-radius: 8px;
+    box-shadow: var(--shadow-md);
+    border: 4px solid var(--white);
+}
+
+.image-badge {
+    position: absolute;
+    bottom: -15px;
+    left: -15px;
+    background-color: var(--primary);
+    color: var(--white);
+    padding: 12px 20px;
+    border-radius: 6px;
+    box-shadow: var(--shadow-md);
+    border-left: 4px solid var(--accent);
+}
+
+.image-badge strong {
+    display: block;
+    font-size: 1.3rem;
+    line-height: 1.1;
+}
+
+.image-badge span {
+    font-size: 0.82rem;
+    color: #d1dbe6;
+}
+
+/* --------------------------------------------------------------------------
+   9. Highlights Cards Section
+   -------------------------------------------------------------------------- */
+.highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.highlight-card {
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 30px 22px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+    border-top: 4px solid var(--primary);
+}
+
+.highlight-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-md);
+    border-top-color: var(--accent);
+}
+
+.highlight-icon {
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    margin: 0 auto 18px;
+    background-color: #eaf1f8;
+    color: var(--primary);
+    font-size: 1.8rem;
+    font-weight: 700;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.highlight-card:hover .highlight-icon {
+    background-color: var(--accent);
+    color: var(--white);
+}
+
+.highlight-card h3 {
+    font-size: 1.18rem;
+    color: var(--primary);
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.highlight-card p {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    line-height: 1.55;
+}
+
+/* --------------------------------------------------------------------------
+   10. Programme Overview Section
+   -------------------------------------------------------------------------- */
+.programme-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.programme-box {
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 32px;
+    box-shadow: var(--shadow-sm);
+}
+
+.programme-box h3 {
+    font-size: 1.3rem;
+    color: var(--primary);
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eef2f6;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.programme-box h3 span {
+    color: var(--accent);
+}
+
+.programme-box p {
+    color: var(--text-muted);
+    margin-bottom: 15px;
+    font-size: 0.98rem;
+}
+
+.programme-list {
+    margin-top: 15px;
+}
+
+.programme-list li {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 10px;
+    color: var(--dark);
+    font-size: 0.95rem;
+}
+
+.programme-list li::before {
+    content: "■";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 0.8rem;
+    top: 1px;
+}
+
+/* --------------------------------------------------------------------------
+   11. News & Events Cards
+   -------------------------------------------------------------------------- */
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+.event-card {
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.event-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-md);
+}
+
+.event-image {
+    position: relative;
+    height: 190px;
+    overflow: hidden;
+    background-color: #e2e8f0;
+}
+
+.event-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.event-card:hover .event-image img {
+    transform: scale(1.05);
+}
+
+.event-date-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background-color: var(--accent);
+    color: var(--white);
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+.event-body {
+    padding: 22px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.event-title {
+    font-size: 1.18rem;
+    color: var(--primary);
+    margin-bottom: 12px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.event-desc {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin-bottom: 16px;
+    flex: 1;
+}
+
+.event-meta {
+    font-size: 0.84rem;
+    color: #718096;
+    border-top: 1px solid var(--border-color);
+    padding-top: 12px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* --------------------------------------------------------------------------
+   12. MCA Association Preview Banner
+   -------------------------------------------------------------------------- */
+.association-preview-box {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: var(--white);
+    border-radius: 10px;
+    padding: 45px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    box-shadow: var(--shadow-md);
+    border-left: 6px solid var(--accent);
+}
+
+.association-preview-text h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: var(--white);
+}
+
+.association-preview-text p {
+    color: #cbd7e6;
+    font-size: 1.05rem;
+    max-width: 680px;
+}
+
+/* --------------------------------------------------------------------------
+   13. Gallery Preview & Full Gallery Grid
+   -------------------------------------------------------------------------- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 220px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+    background-color: #f1f5f9;
+}
+
+.gallery-item a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(18, 59, 104, 0.9) 0%, transparent 100%);
+    padding: 20px 15px 12px;
+    color: var(--white);
+    font-size: 0.9rem;
+    font-weight: 600;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.06);
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+    background: linear-gradient(to top, rgba(169, 0, 43, 0.9) 0%, transparent 100%);
+}
+
+.gallery-center-btn {
+    text-align: center;
+    margin-top: 35px;
+}
+
+/* Category Sections in gallery.html */
+.gallery-category-title {
+    font-size: 1.4rem;
+    color: var(--primary);
+    margin: 35px 0 18px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.gallery-category-title::before {
+    content: "";
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-color: var(--accent);
+    border-radius: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   14. CTA Banner Section
+   -------------------------------------------------------------------------- */
+.cta-section {
+    background: linear-gradient(135deg, var(--accent) 0%, #7d0020 100%);
+    color: var(--white);
+    padding: 55px 0;
+    text-align: center;
+}
+
+.cta-content h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--white);
+}
+
+.cta-content p {
+    font-size: 1.1rem;
+    max-width: 650px;
+    margin: 0 auto 28px;
+    color: #ffcad4;
+}
+
+/* --------------------------------------------------------------------------
+   15. Institutional Footer
+   -------------------------------------------------------------------------- */
+.main-footer {
+    background-color: #0c233f;
+    color: #bcccdc;
+    padding-top: 60px;
+    border-top: 4px solid var(--accent);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+    gap: 35px;
+    padding-bottom: 45px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-col h4 {
+    color: var(--white);
+    font-size: 1.15rem;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-col h4::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 35px;
+    height: 2px;
+    background-color: var(--accent);
+}
+
+.footer-col p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.footer-links li {
+    margin-bottom: 9px;
+}
+
+.footer-links a {
+    color: #cbd7e6;
+    font-size: 0.92rem;
+    display: inline-block;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: var(--white);
+    transform: translateX(4px);
+}
+
+.footer-contact-item {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+}
+
+.footer-contact-item span.icon {
+    color: var(--accent);
+    font-weight: bold;
+}
+
+.footer-social {
+    display: flex;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.footer-social a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background-color: rgba(255, 255, 255, 0.08);
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.footer-social a:hover {
+    background-color: var(--accent);
+    color: var(--white);
+}
+
+.footer-bottom {
+    padding: 20px 0;
+    text-align: center;
+    font-size: 0.88rem;
+    color: #8da1b9;
+    background-color: #07172b;
+}
+
+/* --------------------------------------------------------------------------
+   16. Content Pages: About Department (about.html)
+   -------------------------------------------------------------------------- */
+.about-section-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 45px;
+}
+
+.vision-mission-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.card-vision, .card-mission {
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 32px;
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    border-top: 5px solid var(--primary);
+}
+
+.card-mission {
+    border-top-color: var(--accent);
+}
+
+.card-vision h3, .card-mission h3 {
+    font-size: 1.4rem;
+    color: var(--primary);
+    margin-bottom: 15px;
+}
+
+.card-mission h3 {
+    color: var(--accent);
+}
+
+.objectives-card {
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow-sm);
+}
+
+.objectives-card h3 {
+    color: var(--primary);
+    font-size: 1.25rem;
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 8px;
+}
+
+.facilities-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.facility-card {
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--primary);
+}
+
+.facility-card h4 {
+    color: var(--primary);
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.facility-card p {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   17. HOD Profile Page (hod.html)
+   -------------------------------------------------------------------------- */
+.hod-profile-card {
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 35px;
+    box-shadow: var(--shadow-sm);
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 35px;
+    margin-bottom: 45px;
+    align-items: start;
+}
+
+.hod-photo-wrapper {
+    text-align: center;
+}
+
+.hod-photo {
+    width: 220px;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: var(--shadow-md);
+    border: 4px solid var(--white);
+    outline: 2px solid var(--border-color);
+    margin: 0 auto 15px;
+}
+
+.hod-info h2 {
+    font-size: 1.9rem;
+    color: var(--primary);
+    margin-bottom: 4px;
+}
+
+.hod-designation {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 15px;
+}
+
+.hod-details-table {
+    width: 100%;
+    margin-top: 15px;
+    border-collapse: collapse;
+}
+
+.hod-details-table tr {
+    border-bottom: 1px solid #edf2f7;
+}
+
+.hod-details-table td {
+    padding: 10px 6px;
+    font-size: 0.95rem;
+}
+
+.hod-details-table td.label {
+    font-weight: 600;
+    color: var(--primary);
+    width: 150px;
+}
+
+.hod-details-table td.value {
+    color: var(--dark);
+}
+
+.message-box {
+    background-color: #f8fafc;
+    border-left: 5px solid var(--primary);
+    padding: 30px;
+    border-radius: 6px;
+    margin-bottom: 40px;
+    box-shadow: var(--shadow-sm);
+}
+
+.message-box h3 {
+    color: var(--primary);
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+.message-box p {
+    margin-bottom: 15px;
+    color: #334155;
+    font-size: 1.02rem;
+    line-height: 1.7;
+}
+
+.message-box p:last-child {
+    margin-bottom: 0;
+}
+
+.profile-section-card {
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 28px;
+    margin-bottom: 25px;
+    box-shadow: var(--shadow-sm);
+}
+
+.profile-section-card h3 {
+    color: var(--primary);
+    font-size: 1.25rem;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #edf2f7;
+}
+
+/* --------------------------------------------------------------------------
+   18. Faculty Directory Page (faculty.html)
+   -------------------------------------------------------------------------- */
+.faculty-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+.faculty-card {
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.faculty-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    border-color: #cbd5e1;
+}
+
+.faculty-photo-box {
+    height: 250px;
+    overflow: hidden;
+    background-color: #f1f5f9;
+}
+
+.faculty-photo-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.faculty-card:hover .faculty-photo-box img {
+    transform: scale(1.04);
+}
+
+.faculty-card-body {
+    padding: 22px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.faculty-name {
+    font-size: 1.2rem;
+    color: var(--primary);
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.faculty-role {
+    font-size: 0.92rem;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.faculty-spec {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+}
+
+.faculty-email {
+    font-size: 0.88rem;
+    color: #475569;
+    margin-top: auto;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-color);
+    word-break: break-all;
+}
+
+/* --------------------------------------------------------------------------
+   19. MCA Association Page (association.html)
+   -------------------------------------------------------------------------- */
+.office-bearers-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin: 30px 0;
+}
+
+.bearer-card {
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 24px;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    border-top: 4px solid var(--primary);
+    transition: transform 0.3s ease;
+}
+
+.bearer-card:hover {
+    transform: translateY(-4px);
+    border-top-color: var(--accent);
+}
+
+.bearer-position {
+    display: inline-block;
+    background-color: #f0f4f8;
+    color: var(--primary);
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+}
+
+.bearer-name {
+    font-size: 1.15rem;
+    color: var(--dark);
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.bearer-class {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+}
+
+.activities-list-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.activity-box {
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--accent);
+}
+
+.activity-box h4 {
+    font-size: 1.15rem;
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.activity-box p {
+    font-size: 0.94rem;
+    color: var(--text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   20. Contact Page (contact.html)
+   -------------------------------------------------------------------------- */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 40px;
+}
+
+.contact-info-card {
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 35px;
+    box-shadow: var(--shadow-sm);
+}
+
+.contact-info-card h3 {
+    color: var(--primary);
+    font-size: 1.35rem;
+    margin-bottom: 22px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.contact-item {
+    margin-bottom: 20px;
+}
+
+.contact-item strong {
+    display: block;
+    color: var(--primary);
+    font-size: 0.95rem;
+    margin-bottom: 4px;
+}
+
+.contact-item p {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    line-height: 1.6;
+}
+
+/* Pure HTML Form */
+.contact-form-card {
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 35px;
+    box-shadow: var(--shadow-sm);
+}
+
+.contact-form-card h3 {
+    color: var(--primary);
+    font-size: 1.35rem;
+    margin-bottom: 22px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-size: 0.92rem;
+    color: var(--dark);
+}
+
+.form-control {
+    width: 100%;
+    padding: 11px 14px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    color: var(--dark);
+    background-color: #fafbfc;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(18, 59, 104, 0.12);
+    background-color: var(--white);
+}
+
+textarea.form-control {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* --------------------------------------------------------------------------
+   21. Responsive Media Queries
+   -------------------------------------------------------------------------- */
+
+/* Tablet (max-width: 992px) */
+@media (max-width: 992px) {
+    .highlights-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .events-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .faculty-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+    
+    .about-preview-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-preview-image {
+        max-width: 550px;
+        margin: 0 auto;
+    }
+    
+    .hod-profile-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .hod-details-table td.label {
+        width: 40%;
+    }
+}
+
+/* Mobile Devices & Small Tablets (max-width: 768px) */
+@media (max-width: 768px) {
+    .top-bar-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 6px;
+    }
+    
+    .top-info {
+        justify-content: center;
+    }
+    
+    .nav-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .brand-wrapper {
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .main-nav ul {
+        justify-content: center;
+        gap: 4px;
+    }
+    
+    .main-nav a {
+        padding: 7px 10px;
+        font-size: 0.85rem;
+    }
+    
+    .hero-title {
+        font-size: 2.1rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.15rem;
+    }
+    
+    .programme-grid,
+    .vision-mission-grid,
+    .about-section-grid,
+    .contact-grid,
+    .activities-list-grid,
+    .facilities-grid,
+    .office-bearers-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .association-preview-box {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 20px;
+    }
+    
+    .section-title {
+        font-size: 1.75rem;
+    }
+    
+    .banner-title {
+        font-size: 1.7rem;
+    }
+    
+    .banner-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+}
+
+/* Small Smart Phones (max-width: 480px) */
+@media (max-width: 480px) {
+    .highlights-grid,
+    .events-grid,
+    .gallery-grid,
+    .faculty-grid,
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+    }
+    
+    .btn {
+        width: 100%;
+    }
+    
+    .college-title {
+        font-size: 0.95rem;
+    }
+    
+    .dept-title {
+        font-size: 0.82rem;
+    }
+    
+    .main-nav ul {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .main-nav li {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .main-nav a {
+        display: block;
+        width: 100%;
+        padding: 8px;
+    }
+}
